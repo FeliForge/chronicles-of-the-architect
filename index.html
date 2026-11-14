@@ -41,7 +41,6 @@
     <div id="timing-perfect"></div>
     <div id="timing-indicator"></div>
   </div>
-
   <div id="screen-menu" class="screen">
     <h1>CHRONICLES OF THE ARCHITECT</h1>
     <p>Forge, Itap and Tango climb the Ten Towers to stop the Final Architect from rewriting reality.</p>
@@ -49,34 +48,31 @@
     <button class="btn" id="btn-continue" onclick="Game.continueGame()">Continue</button>
     <button class="btn" onclick="Game.showControls()">Controls</button>
   </div>
-
   <div id="screen-controls" class="screen hidden">
     <h2>Controls</h2>
     <p><b>Combat:</b> Tap buttons to act.<br>
     <b>Timing:</b> White line moves. Tap when it hits the green zone. Yellow center = Perfect.</p>
     <button class="btn" onclick="Game.backToMenu()">Back</button>
   </div>
-
   <div id="screen-victory" class="screen hidden">
     <h2 id="victory-title">Victory!</h2>
     <p id="victory-text"></p>
     <button class="btn" id="btn-next" onclick="Game.nextStage()">Continue</button>
   </div>
-
   <div id="screen-gameover" class="screen hidden">
     <h2>Defeat</h2>
     <p>The party has fallen. The Architect's influence grows.</p>
     <button class="btn" onclick="Game.retryBoss()">Retry Boss</button>
     <button class="btn" onclick="Game.backToMenu()">Main Menu</button>
   </div>
-
   <div id="screen-ending" class="screen hidden">
     <h1>REALITY RESTORED</h1>
     <p id="ending-text">The Final Architect is defeated. The Ten Towers fall silent. Forge returns to his forge, Itap to his tomes, and Tango... is still a very good boy.</p>
     <button class="btn" onclick="Game.backToMenu()">Main Menu</button>
   </div>
 </div>
-<script src="game-core.js"></script>
+<script src="game-data.js"></script>
+<script src="game-render.js"></script>
 <script src="game-logic.js"></script>
 </body>
 </html>
