@@ -4,10 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Chronicles of the Architect: Boss Rush</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p>Game loading... Please replace this file with the full index.html from the project artifacts.</p>
-<p>Repo: FeliForge/chronicles-of-the-architect</p>
-<script>location.href='https://github.com/FeliForge/chronicles-of-the-architect';</script>
+<div id="game-container">
+  <canvas id="gameCanvas" width="900" height="600"></canvas>
+  <div class="ui-overlay">
+    <div id="top-hud" class="hidden">
+      <div class="char-hud" id="hud-forge">
+        <div class="char-name">Forge <span class="level-tag" id="lv-forge">Lv1</span></div>
+        <div class="bar-row"><span class="bar-label">HP</span><div class="bar-container"><div class="bar-fill hp-fill" id="hp-forge"></div></div></div>
+        <div class="bar-row"><span class="bar-label">MP</span><div class="bar-container"><div class="bar-fill mp-fill" id="mp-forge"></div></div></div>
+      </div>
+      <div class="char-hud" id="hud-itap">
+        <div class="char-name">Itap <span class="level-tag" id="lv-itap">Lv1</span></div>
+        <div class="bar-row"><span class="bar-label">HP</span><div class="bar-container"><div class="bar-fill hp-fill" id="hp-itap"></div></div></div>
+        <div class="bar-row"><span class="bar-label">MP</span><div class="bar-container"><div class="bar-fill mp-fill" id="mp-itap"></div></div></div>
+      </div>
+      <div class="char-hud" id="hud-tango">
+        <div class="char-name">Tango <span class="level-tag" id="lv-tango">Lv1</span></div>
+        <div class="bar-row"><span class="bar-label">HP</span><div class="bar-container"><div class="bar-fill hp-fill" id="hp-tango"></div></div></div>
+        <div class="bar-row"><span class="bar-label">MP</span><div class="bar-container"><div class="bar-fill mp-fill" id="mp-tango"></div></div></div>
+      </div>
+    </div>
+    <div id="log-box"></div>
+    <div id="bottom-panel" class="hidden">
+      <div id="dialogue-box">
+        <div id="dialogue-speaker"></div>
+        <div id="dialogue-text"></div>
+      </div>
+      <div id="action-menu"></div>
+    </div>
+  </div>
+  <div id="timing-bar">
+    <div id="timing-zone"></div>
+    <div id="timing-perfect"></div>
+    <div id="timing-indicator"></div>
+  </div>
+
+  <div id="screen-menu" class="screen">
+    <h1>CHRONICLES OF THE ARCHITECT</h1>
+    <p>Forge, Itap and Tango climb the Ten Towers to stop the Final Architect from rewriting reality.</p>
+    <button class="btn" onclick="Game.startNewGame()">New Campaign</button>
+    <button class="btn" id="btn-continue" onclick="Game.continueGame()">Continue</button>
+    <button class="btn" onclick="Game.showControls()">Controls</button>
+  </div>
+
+  <div id="screen-controls" class="screen hidden">
+    <h2>Controls</h2>
+    <p><b>Combat:</b> Tap buttons to act.<br>
+    <b>Timing:</b> White line moves. Tap when it hits the green zone. Yellow center = Perfect.</p>
+    <button class="btn" onclick="Game.backToMenu()">Back</button>
+  </div>
+
+  <div id="screen-victory" class="screen hidden">
+    <h2 id="victory-title">Victory!</h2>
+    <p id="victory-text"></p>
+    <button class="btn" id="btn-next" onclick="Game.nextStage()">Continue</button>
+  </div>
+
+  <div id="screen-gameover" class="screen hidden">
+    <h2>Defeat</h2>
+    <p>The party has fallen. The Architect's influence grows.</p>
+    <button class="btn" onclick="Game.retryBoss()">Retry Boss</button>
+    <button class="btn" onclick="Game.backToMenu()">Main Menu</button>
+  </div>
+
+  <div id="screen-ending" class="screen hidden">
+    <h1>REALITY RESTORED</h1>
+    <p id="ending-text">The Final Architect is defeated. The Ten Towers fall silent. Forge returns to his forge, Itap to his tomes, and Tango... is still a very good boy.</p>
+    <button class="btn" onclick="Game.backToMenu()">Main Menu</button>
+  </div>
+</div>
+<script src="game.js"></script>
 </body>
 </html>
